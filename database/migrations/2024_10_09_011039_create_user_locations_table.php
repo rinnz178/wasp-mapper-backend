@@ -12,15 +12,16 @@ class CreateUserLocationsTable extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('user_locations', function (Blueprint $table) {
-            $table->id();
-            $table->string('uuid'); // Device UUID
-            $table->decimal('latitude', 10, 8); // User latitude
-            $table->decimal('longitude', 11, 8); // User longitude
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('user_locations', function (Blueprint $table) {
+        $table->id();
+        $table->string('uuid'); // Device UUID
+        $table->decimal('latitude', 10, 8); // User latitude
+        $table->decimal('longitude', 11, 8); // User longitude
+        $table->integer('level')->nullable(); // User level, nullable with default value null
+        $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.
